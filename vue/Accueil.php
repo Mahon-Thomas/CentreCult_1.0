@@ -1,4 +1,4 @@
-<div class="connexion">
+<div class="content-form">
 <h2> Connectez-vous ! </h2>
 
 <form action="index.php?action=Connexion" method="POST" class="form-connexion">

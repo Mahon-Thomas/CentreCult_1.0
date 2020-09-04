@@ -55,6 +55,21 @@
                 include "./vue/Accueil.php";
             }
 
+            if($_REQUEST['action'] == "formAdd"){
+                include "./vue/form-user.php";
+            }
+
+            if($_REQUEST['action'] == "addUser"){
+
+                require_once "./control/utilisateur.php";
+                $uti = new Utilisateur();
+
+                $uti->adduser($_POST);
+
+                header ("Location: index.php?action=Interface");
+                
+            }
+
         include "vue/Footer.php";
 
         }else{
