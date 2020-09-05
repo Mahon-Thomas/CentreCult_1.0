@@ -8,14 +8,14 @@
     </div>
 
     <div class="mod mod1"> 
-        <a href="#">
+        <a href="index.php?action=tbl-edit">
         <img src="./image/user.png" width="150"/>
         <p> Modifier un utilisateur </p>
         </a>
     </div>
 
     <div class="mod mod2"> 
-    <a href="#">
+    <a href="index.php?action=tbl-delete-user">
         <img src="./image/rm-user.png"width="150"/>
         <p> Supprimer un utilisateur </p>
     </a>

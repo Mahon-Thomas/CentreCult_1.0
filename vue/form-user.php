@@ -9,7 +9,7 @@
     <h2> Ajouter un utilisateur </h2>
 
     <form action="index.php?action=addUser" method="POST" class="form-connexion">
-
+        
         <label for="nom">Nom : </label>
         <input type="text" name="nom" id="nom" required>
     

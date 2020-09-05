@@ -8,7 +8,10 @@
 
         if(isset($_REQUEST['action'])){
             session_start();
+            require_once "./control/utilisateur.php";
+            $uti = new Utilisateur();
             include "./vue/Header.php";
+            
 
             if($_REQUEST['action'] == "Connexion"){
                 
@@ -61,13 +64,50 @@
 
             if($_REQUEST['action'] == "addUser"){
 
-                require_once "./control/utilisateur.php";
-                $uti = new Utilisateur();
-
                 $uti->adduser($_POST);
 
                 header ("Location: index.php?action=Interface");
                 
+            }
+
+            if($_REQUEST['action'] == 'tbl-edit') {
+                
+
+                $tbluser = $uti->getUsers();
+                include "./vue/edit-user.php";
+            }
+
+            if($_REQUEST['action'] == 'Modifier'){
+                $resUser = $uti->getUser($_POST);
+                include "./vue/editform-user.php";
+
+            }
+
+            if($_REQUEST['action'] == 'edituser'){
+                $uti->edituser($_POST);
+                $tbluser = $uti->getUsers();
+                include "./vue/edit-user.php";
+            }
+
+            if($_REQUEST['action'] == 'tbl-delete-user') {
+                $tbluser = $uti->getUsers();
+                include "./vue/delete-user.php";
+            }
+
+            if($_REQUEST['action'] == 'Supprimer'){
+                $_SESSION['supUser'] = $_POST['ide'];
+                $resUser = $uti->getUser($_POST);
+                
+                include './vue/verif-delete-user.php';
+            }
+
+            if($_REQUEST['action'] == 'confirm-delete'){
+
+                $id = $_SESSION['supUser'];
+                unset($_SESSION['supUser']);
+
+                $uti->deleteUser($id);
+                header ('Location: index.php?action=tbl-delete-user');
             }
 
         include "vue/Footer.php";
