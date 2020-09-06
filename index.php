@@ -10,6 +10,8 @@
             session_start();
             require_once "./control/utilisateur.php";
             require_once "./control/poste.php";
+            require_once "./control/reserve.php";
+            $reserv = new Reservation();
             $post = new Postes();
             $uti = new Utilisateur();
             include "./vue/Header.php";
@@ -185,11 +187,52 @@
                     header ('Location: index.php?action=tbl-delete-poste');
                 }
                 // FIN SUPPRIMER UN POSTE
+
+                // PARTIE RESERVATION DES POSTES
+                if($_REQUEST['action'] == 'choiceUser'){
+                    $tbluser = $uti->getUsers();
+                    include "./vue/reservation/choiceuser.php";
+
+                }
+
+                if($_REQUEST['action'] == '+'){
+                 
+                    $_SESSION["id_user"] = $_POST['id_user'];
+                   // $_SESSION["nom_user"] = $_POST['nom'];
+                   // $_SESSION["prenom_user"] = $_POST['prenom'];
+
+                    $tblpost = $post->getPostes();
+
+                    include "./vue/reservation/choicepost.php";
+
+                }
+
+                if($_REQUEST['action'] == 'Selectionner'){
+                    $_SESSION["id_post"] = $_POST['id_post'];
+                    // $_SESSION["nom_post"] = $_POST['nom_post'];
+                    $resPost = $post->getPosteRes($_SESSION["id_post"]);
+                    $resUser = $uti->getUserRes($_SESSION["id_user"]);
+                    include "./vue/reservation/choicedate.php";
+                    
+                }
+
+                if($_REQUEST['action'] == 'Attribuer le poste'){
+                    $id_post = $_SESSION['id_post'];
+                    $id_user = $_SESSION['id_user'];
+
+                   
+                    $reserv->addReserve($_POST, $id_post, $id_user);
+                    
+                    header('Location: index.php?action=Interface');
+                }
+                // FIN RESERVATION DES POSTES
+
             }else{
 
                 header("Location: ./");
             
             }
+
         include "vue/Footer.php";
 
         }else{

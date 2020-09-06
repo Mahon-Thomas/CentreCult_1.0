@@ -70,7 +70,7 @@ hr {
 }
 .content-form {
     
-    padding: 10% 30% 10% 30%;
+    padding: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -183,7 +183,11 @@ footer {
 .btnyes {
     margin-right: 50px;
 }
-.unique {
-    color: red;
-    font-style: italic;
+#nom {
+    border: none;
+    cursor: default;
+
+}
+#heure{
+    width: 70px;
 }

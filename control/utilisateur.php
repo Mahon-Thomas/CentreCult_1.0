@@ -23,6 +23,14 @@ class Utilisateur {
         return $res;
       }
 
+      function getUserRes($id){
+
+        $strSQL = "SELECT * FROM utilisateurs WHERE id = ?";
+        $tabValeur = array($id);
+        $res = $this->ds->Requete($strSQL, $tabValeur);
+        return $res;
+      }
+
     function adduser($add){
         
         $strSQL = "INSERT INTO utilisateurs (nom, prenom, datenaiss, adresse) VALUES (?, ?, ?, ?)";

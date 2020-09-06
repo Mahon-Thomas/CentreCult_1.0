@@ -43,7 +43,7 @@
     </div>
 
     <div class="mod mod6"> 
-    <a href="#">
+    <a href="index.php?action=choiceUser">
         <img src="./image/booking.png"width="130"/>
         <p> Attribuer un poste </p>
     </a>

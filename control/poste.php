@@ -22,6 +22,13 @@ class Postes {
         $res = $this->ds->Requete($strSQL, $tabValeur);
         return $res;
       }
+      function getPosteRes($id){
+
+        $strSQL = "SELECT * FROM postes WHERE id_post = ?";
+        $tabValeur = array($id);
+        $res = $this->ds->Requete($strSQL, $tabValeur);
+        return $res;
+      }
       function getRefPoste($ref){
 
         $strSQL = "SELECT * FROM postes WHERE ref_post = ?";
