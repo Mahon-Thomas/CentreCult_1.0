@@ -5,6 +5,7 @@
 </div>
 
 <div class="content-edit">
+<img src="./image/rm-user.png"width="140"/>
 <h2> Supprimer l'utilisateur <?php echo $resUser[0]['nom'];?> <?php  echo $resUser[0]['prenom']; ?> ?</h2>
 
 <p>Voulez-vous vraiment supprimer cet utilisateur ? </p>

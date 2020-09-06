@@ -63,7 +63,7 @@
 
             // PARTIE AJOUT UTILISATEUR
             if($_REQUEST['action'] == "formAdd"){
-                include "./vue/form-user.php";
+                include "./vue/user/form-user.php";
             }
 
             if($_REQUEST['action'] == "addUser"){
@@ -80,33 +80,33 @@
                 
 
                 $tbluser = $uti->getUsers();
-                include "./vue/edit-user.php";
+                include "./vue/user/edit-user.php";
             }
 
             if($_REQUEST['action'] == 'Modifier'){
                 $resUser = $uti->getUser($_POST);
-                include "./vue/editform-user.php";
+                include "./vue/user/editform-user.php";
 
             }
 
             if($_REQUEST['action'] == 'edituser'){
                 $uti->edituser($_POST);
                 $tbluser = $uti->getUsers();
-                include "./vue/edit-user.php";
+                include "./vue/user/edit-user.php";
             }
             // FIN EDIT UN UTILISATEUR
 
             // PARTIE SUPPRIMER UN UTILISATEUR
             if($_REQUEST['action'] == 'tbl-delete-user') {
                 $tbluser = $uti->getUsers();
-                include "./vue/delete-user.php";
+                include "./vue/user/delete-user.php";
             }
 
             if($_REQUEST['action'] == 'Supprimer'){
                 $_SESSION['supUser'] = $_POST['ide'];
                 $resUser = $uti->getUser($_POST);
                 
-                include './vue/verif-delete-user.php';
+                include './vue/user/verif-delete-user.php';
             }
 
             if($_REQUEST['action'] == 'confirm-delete'){
@@ -121,7 +121,7 @@
 
             // PARTIE AJOUT UN POST
             if($_REQUEST['action'] == 'form-add-post'){
-                include "./vue/form-add-poste.php";
+                include "./vue/poste/form-add-poste.php";
             }
 
             if($_REQUEST['action'] == "addPoste"){
@@ -134,7 +134,7 @@
                 header ("Location: index.php?action=Interface");
                 }else{
                     $unique = "La référence du poste existe déjà ! ";
-                    include "./vue/form-add-poste.php";
+                    include "./vue/poste/form-add-poste.php";
                 }
             }
             // FIN AJOUT UN POSTE
@@ -142,12 +142,12 @@
             // PARTIE MODIFIER UN POSTE
             if ($_REQUEST['action'] == "tbl-edit-post"){
                 $tblpost = $post->getPostes();
-                include "./vue/edit-poste.php";
+                include "./vue/poste/edit-poste.php";
             }
 
             if($_REQUEST['action'] == 'Modifier le poste'){
                 $resPost = $post->getPoste($_POST);
-                include "./vue/editform-poste.php";
+                include "./vue/poste/editform-poste.php";
 
             }
 
@@ -155,7 +155,7 @@
 
                  $post->editpost($_POST);
                  $tblpost = $post->getPostes();
-                include "./vue/edit-poste.php";
+                include "./vue/poste/edit-poste.php";
 
             }
             // FIN MODIFIER UN POSTE
@@ -163,14 +163,14 @@
             // PARTIE SUPPRIMER UN POSTE
             if($_REQUEST['action'] == 'tbl-delete-poste') {
                 $tblpost = $post->getPostes();
-                include "./vue/delete-poste.php";
+                include "./vue/poste/delete-poste.php";
             }
 
             if($_REQUEST['action'] == 'Supprimer le poste'){
                 $_SESSION['supPost'] = $_POST['ide'];
                 $resPost = $post->getPoste($_POST);
                 
-                include './vue/verif-delete-poste.php';
+                include './vue/poste/verif-delete-poste.php';
             }
 
             if($_REQUEST['action'] == 'confirm-delete-poste'){
