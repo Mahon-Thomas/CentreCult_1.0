@@ -15,7 +15,7 @@
 
             echo $_SESSION["erreurMessage"];
 
-            session_destroy();
+            unset($_SESSION["erreurMessage"]);
 
         }
        

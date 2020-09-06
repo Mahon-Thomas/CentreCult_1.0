@@ -183,3 +183,7 @@ footer {
 .btnyes {
     margin-right: 50px;
 }
+.unique {
+    color: red;
+    font-style: italic;
+}

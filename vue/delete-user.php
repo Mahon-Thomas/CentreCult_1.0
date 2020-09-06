@@ -5,6 +5,7 @@
 </div>
 
 <div class="content-edit">
+<img src="./image/rm-user.png"width="140"/>
 <h2> Modifier un utilisateur </h2>
 
 

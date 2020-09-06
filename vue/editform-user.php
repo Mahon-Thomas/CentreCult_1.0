@@ -1,10 +1,11 @@
 <div class="back">
-<a href="index.php?action=form-edit">
+<a href="index.php?action=tbl-edit">
 <img src="./image/arrow.png" width="50"/>
 </a>
 </div>
 
 <div class="content-edit">
+<img src="./image/user.png"width="150"/>
 <h2> Modifier l'utilisateur </h2>
 
     
