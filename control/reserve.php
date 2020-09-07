@@ -25,6 +25,37 @@ class Reservation
 
     function verifReserve($reserv){
 
+        $strSQL = "SELECT * FROM  reservation,postes WHERE id_posts = postes.id_post AND date = :date AND heure = :heure AND id_posts = :id_post";
+        $tabValeur = array(
+        "date" => $reserv['date'],
+        "heure" => $reserv['heure'],
+        "id_post" => $reserv['id_post']
+        );
+        $res = $this->ds->Requete($strSQL, $tabValeur);
+        return $res;
+
+    }
+
+    function getDatenow(){
+        $strSQL = "SELECT `id_res`, `id_uti`, `id_post`, `date`, `heure`, `nom`, `prenom`, `nom_post`
+        FROM reservation, utilisateurs, postes
+        WHERE id_uti = utilisateurs.id
+        AND id_posts = postes.id_post
+        AND date = DATE(NOW())";
+        $tabValeur = array("*");
+        $res = $this->ds->Requete($strSQL, $tabValeur);
+        return $res;
+    }
+
+    function getDateexp(){
+        $strSQL = "SELECT `id_res`, `id_uti`, `id_post`, `date`, `heure`, `nom`, `prenom`, `nom_post`
+        FROM reservation, utilisateurs, postes
+        WHERE id_uti = utilisateurs.id
+        AND id_posts = postes.id_post
+        AND date < DATE(NOW())";
+        $tabValeur = array("*");
+        $res = $this->ds->Requete($strSQL, $tabValeur);
+        return $res;
     }
 
     function getReserves(){
@@ -32,7 +63,9 @@ class Reservation
         $strSQL = "SELECT `id_res`, `id_uti`, `id_post`, `date`, `heure`, `nom`, `prenom`, `nom_post`
         FROM reservation, utilisateurs, postes
         WHERE id_uti = utilisateurs.id
-        AND id_posts = postes.id_post";
+        AND id_posts = postes.id_post
+        AND date > DATE(NOW())
+        ORDER BY date ASC";
         $tabValeur = array("*");
         $res = $this->ds->Requete($strSQL, $tabValeur);
         return $res;

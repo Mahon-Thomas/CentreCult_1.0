@@ -37,8 +37,13 @@
         <option>15h00 - 16h00</option>
         <option>16h00 - 17h00</option>
         </select>
+        <?php
+            if(isset($_SESSION['erreurDate'])) {
+                echo "<p>".$_SESSION['erreurDate']."</p>";
 
-
+            }
+            unset($_SESSION['erreurDate']);
+        ?>
         <input class='btn btn-warning' type='submit' name='action' value='Attribuer le poste'>
     </form>
 </div>

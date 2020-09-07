@@ -218,10 +218,18 @@
                 }
 
                 if($_REQUEST['action'] == 'Attribuer le poste'){
-                    
+                    $resDate = $reserv->verifReserve($_POST);
+            
+                    if(empty($resDate)){
                     $reserv->addReserve($_POST);
-                    
                     header('Location: index.php?action=Interface');
+                    }else{
+                    $_SESSION['erreurDate'] = "Une réservation a déjà été mise a cette horaire !";
+                    $resPost = $post->getPosteRes($_SESSION["id_post"]);
+                    $resUser = $uti->getUserRes($_SESSION["id_user"]);
+                    include "./vue/reservation/choicedate.php";
+                    }
+                    
                 }
                 // FIN RESERVATION DES POSTES
 
@@ -229,7 +237,8 @@
 
                 if($_REQUEST['action'] == 'listereservation'){
                     $tblRes = $reserv->getReserves();
-                    
+                    $tblDate = $reserv->getDatenow();
+                    $tblExp = $reserv->getDateexp();
                     include "./vue/reservation/listereservation.php";
                 }
 
@@ -244,7 +253,7 @@
             
             }
 
-        include "vue/Footer.php";
+        include "./vue/Footer.php";
 
         }else{
 
@@ -254,7 +263,7 @@
 
             include "./vue/Accueil.php";
 
-            include "./vue/footer.php";
+            include "./vue/Footer.php";
 
         }
 
