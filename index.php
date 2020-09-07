@@ -198,8 +198,8 @@
                 if($_REQUEST['action'] == '+'){
                  
                     $_SESSION["id_user"] = $_POST['id_user'];
-                   // $_SESSION["nom_user"] = $_POST['nom'];
-                   // $_SESSION["prenom_user"] = $_POST['prenom'];
+                    $_SESSION["nom_user"] = $_POST['nom'];
+                    $_SESSION["prenom_user"] = $_POST['prenom'];
 
                     $tblpost = $post->getPostes();
 
@@ -209,7 +209,8 @@
 
                 if($_REQUEST['action'] == 'Selectionner'){
                     $_SESSION["id_post"] = $_POST['id_post'];
-                    // $_SESSION["nom_post"] = $_POST['nom_post'];
+                    $_SESSION["nom_post"] = $_POST['nom_post'];
+                    
                     $resPost = $post->getPosteRes($_SESSION["id_post"]);
                     $resUser = $uti->getUserRes($_SESSION["id_user"]);
                     include "./vue/reservation/choicedate.php";
@@ -217,12 +218,25 @@
                 }
 
                 if($_REQUEST['action'] == 'Attribuer le poste'){
-                   
+                    
                     $reserv->addReserve($_POST);
                     
                     header('Location: index.php?action=Interface');
                 }
                 // FIN RESERVATION DES POSTES
+
+                // PARTIE LISTE RESERVATION
+
+                if($_REQUEST['action'] == 'listereservation'){
+                    $tblRes = $reserv->getReserves();
+                    
+                    include "./vue/reservation/listereservation.php";
+                }
+
+                if($_REQUEST['action'] == 'Annuler'){
+                    $reserv->getDeleteReserve($_POST);
+                    header ('Location: index.php?action=listereservation');
+                }
 
             }else{
 

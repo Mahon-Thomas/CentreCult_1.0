@@ -50,7 +50,7 @@
     </div>
 
     <div class="mod mod7"> 
-    <a href="#">
+    <a href="index.php?action=listereservation">
         <img src="./image/calendar.png"width="130"/>
         <p> Liste réservation </p>
     </a>

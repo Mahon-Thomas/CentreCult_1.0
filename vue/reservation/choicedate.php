@@ -23,15 +23,22 @@
         <label for="id_post"> Id du poste :</label>
         <input type="numeric" name='id_post' id='nom' value='<?php echo $_SESSION['id_post']; ?>' readonly>
 
-        <label for="date"> Date </label>
+        <label for="date"> Date :</label>
         <input type="date" name='date' id='date'>
 
-        <label for="heure_debut"> Heure début :</label>
-        <input type="text" name='heure_debut' id='heure' placeholder="8:00" >
-
-        <label for="heure_fin"> heure fin :</label>
-        <input type="text" name='heure_fin' id='heure' placeholder="9:00" >
+        <label for="heure"> Heure :</label>
+        <select name="heure">
+        <option>8h00 - 9h00</option>
+        <option>9h00 - 10h00</option>
+        <option>10h00 - 11h00</option>
+        <option>11h00 - 12h00</option>
+        <option>13h00 - 14h00</option>
+        <option>14h00 - 15h00</option>
+        <option>15h00 - 16h00</option>
+        <option>16h00 - 17h00</option>
+        </select>
 
 
         <input class='btn btn-warning' type='submit' name='action' value='Attribuer le poste'>
     </form>
+</div>
