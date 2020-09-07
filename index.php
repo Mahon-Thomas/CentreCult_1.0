@@ -217,11 +217,8 @@
                 }
 
                 if($_REQUEST['action'] == 'Attribuer le poste'){
-                    $id_post = $_SESSION['id_post'];
-                    $id_user = $_SESSION['id_user'];
-
                    
-                    $reserv->addReserve($_POST, $id_post, $id_user);
+                    $reserv->addReserve($_POST);
                     
                     header('Location: index.php?action=Interface');
                 }

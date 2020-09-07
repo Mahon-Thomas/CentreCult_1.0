@@ -1,3 +1,9 @@
+<div class="back">
+<a href="index.php?action=Interface">
+<img src="./image/arrow.png" width="50"/>
+</a>
+</div>
+
 <div class="content-form">
 
 <h2> Choissisez un utilisateur </h2>

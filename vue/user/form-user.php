@@ -11,7 +11,7 @@
     <form action="index.php?action=addUser" method="POST" class="form-connexion">
         
         <label for="nom">Nom : </label>
-        <input type="text" name="nom" id="nom" required>
+        <input type="text" name="nom" id="" required>
     
 
         <label for="prenom">Prénom : </label>

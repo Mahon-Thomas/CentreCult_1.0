@@ -1,5 +1,5 @@
 <div class="back">
-<a href="index.php?action=Interface">
+<a href="index.php?action=choiceUser">
 <img src="./image/arrow.png" width="50"/>
 </a>
 </div>
