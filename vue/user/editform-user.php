@@ -14,7 +14,7 @@
         <input class="ide" readonly type='text' name='ide' id='ide' value="<?php echo $resUser[0]['id'] ?>">
 
         <label for="nom">Nom : </label>
-        <input type="text" name="nom" id="nom" value="<?php echo $resUser[0]['nom']?>" required>
+        <input type="text" name="nom" id="" value="<?php echo $resUser[0]['nom']?>" required>
 
 
         <label for="prenom">Prénom : </label>
